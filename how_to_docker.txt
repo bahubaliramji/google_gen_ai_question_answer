@@ -1,0 +1,19 @@
+pip freeze > requirements.txt
+
+docker build -t cold_email_llama_groq .
+
+docker run -d -p 8501:8501 --name cold_email_llama_groq_container cold_email_llama_groq
+
+docker start cold_email_llama_groq_container
+
+docker exec -it cold_email_llama_groq_container /bin/bash
+
+
+
+--push to docker
+docker tag my_app_image your_username/my_app_image:latest
+docker push your_username/my_app_image:latest
+
+docker tag cold_email_llama_groq bahubaliramji/cold_email_generator_llama_groq_app:latest
+docker push bahubaliramji/cold_email_generator_llama_groq_app:latest
+
